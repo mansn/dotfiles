@@ -1,7 +1,4 @@
-#!/bin/bash
-ZSH_THEME="robbyrussell"
-plugins=(git)
-source ~/.oh-my-zsh/oh-my-zsh.sh
+#!/bin/zsh
 # history size
 HISTSIZE=5000
 HISTFILESIZE=10000
