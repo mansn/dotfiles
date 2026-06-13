@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 # history size
 HISTSIZE=5000
 HISTFILESIZE=10000
@@ -47,3 +47,10 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/mansn/.lmstudio/bin"
+# End of LM Studio CLI section
+
+PROMPT='%n %~ '
+export GPG_TTY=$(tty)
