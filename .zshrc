@@ -1,4 +1,3 @@
-#!/bin/bash
 # history size
 HISTSIZE=5000
 HISTFILESIZE=10000
@@ -54,3 +53,36 @@ export PATH="$PATH:/Users/mansn/.lmstudio/bin"
 
 PROMPT='%n %~ '
 export GPG_TTY=$(tty)
+
+# pnpm
+export PNPM_HOME="/Users/mansn/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+# opencode
+export PATH=/Users/mansn/.opencode/bin:$PATH
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PATH="$HOME/.local/bin:$PATH"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/mansn/.docker/completions $fpath)
+autoload -Uz compinit
+(( ${+_comps[docker]} )) || compinit
+# End of Docker CLI completions
+
+# Bind Arrow Up and Down to search history based on what you have typed so far
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+
+# Vite+ bin (https://viteplus.dev)
+. "/Users/mansn/.config/vite-plus/env"
